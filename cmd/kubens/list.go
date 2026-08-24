@@ -36,7 +36,7 @@ type ListOp struct{}
 
 func (op ListOp) Run(stdout, stderr io.Writer) error {
 	kc := new(kubeconfig.Kubeconfig).WithLoader(kubeconfig.DefaultLoader)
-	kc.Close()
+	defer kc.Close()
 	if err := kc.Parse(); err != nil {
 		return fmt.Errorf("kubeconfig error: %w", err)
 	}
