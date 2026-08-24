@@ -88,7 +88,7 @@ func (op InteractiveSwitchOp) Run(_, stderr io.Writer) error {
 }
 
 func (op InteractiveDeleteOp) Run(_, stderr io.Writer) error {
-	if err := checkIsolatedMode(); err == nil {
+	if err := checkIsolatedMode(); err != nil {
 		return err
 	}
 	// parse kubeconfig just to see if it can be loaded
