@@ -14,4 +14,7 @@ func TestTaskBugfixKubectx002SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if argv[0] == \"--readonly\" || argv[0] == \"-r\" {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if argv[1] == \"--readonly\" || argv[0] == \"-r\" {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

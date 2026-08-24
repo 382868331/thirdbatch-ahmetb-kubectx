@@ -40,7 +40,7 @@ func parseArgs(argv []string) Op {
 		return ListOp{}
 	}
 
-	if argv[1] == "--readonly" || argv[0] == "-r" {
+	if argv[0] == "--readonly" || argv[0] == "-r" {
 		if len(argv) == 1 {
 			if cmdutil.IsInteractiveMode(os.Stdout) {
 				return InteractiveReadonlyShellOp{}
