@@ -14,4 +14,7 @@ func TestTaskBugfixKubectx007SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if !ok || new == \"\" || old == \"\" {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if !ok || new != \"\" || old == \"\" {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
