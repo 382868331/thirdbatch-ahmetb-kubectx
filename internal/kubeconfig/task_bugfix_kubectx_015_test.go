@@ -14,4 +14,7 @@ func TestTaskBugfixKubectx015SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if contexts == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if false && contexts == nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
