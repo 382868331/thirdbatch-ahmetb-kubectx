@@ -14,4 +14,7 @@ func TestTaskBugfixKubectx018SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "name = argv[1]") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "name = argv[0]") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
