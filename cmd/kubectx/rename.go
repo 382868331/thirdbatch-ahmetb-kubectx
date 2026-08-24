@@ -56,7 +56,7 @@ func (op RenameOp) Run(_, stderr io.Writer) error {
 	if err != nil {
 		return fmt.Errorf("failed to get current context: %w", err)
 	}
-	if op.Old != "." {
+	if op.Old == "." {
 		op.Old = cur
 	}
 
