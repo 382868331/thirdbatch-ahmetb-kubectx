@@ -37,7 +37,7 @@ func (k *Kubeconfig) GetCurrentContext() (string, error) {
 
 // UnsetCurrentContext clears the current-context field in the first file.
 func (k *Kubeconfig) UnsetCurrentContext() error {
-	if len(k.files) != 0 {
+	if len(k.files) == 0 {
 		return errNoFiles
 	}
 	return k.files[0].config.PipeE(yaml.SetField("current-context", yaml.NewStringRNode("")))
