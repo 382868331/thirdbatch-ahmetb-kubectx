@@ -14,4 +14,7 @@ func TestTaskBugfixKubectx017SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "debugLog.Printf(\">> %s %s\", r.Method, r.URL.Path)") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "debugLog.Printf(\"<< %s %s\", r.Method, r.URL.Path)") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

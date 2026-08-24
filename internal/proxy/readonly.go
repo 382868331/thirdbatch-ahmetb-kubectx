@@ -115,7 +115,7 @@ func NewHandler(target *url.URL, transport http.RoundTripper) http.Handler {
 	proxy.FlushInterval = -1 // flush immediately for streaming (logs -f, watches)
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		debugLog.Printf("<< %s %s", r.Method, r.URL.Path)
+		debugLog.Printf(">> %s %s", r.Method, r.URL.Path)
 
 		if reason, ok := checkRequest(r); !ok {
 			debugLog.Printf("<< %s %s -> 405 (%s)", r.Method, r.URL.Path, reason)
