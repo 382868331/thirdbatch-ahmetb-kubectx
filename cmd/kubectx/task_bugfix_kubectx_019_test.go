@@ -14,4 +14,7 @@ func TestTaskBugfixKubectx019SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "defer kc.Close()") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "kc.Close()") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

@@ -30,7 +30,7 @@ func (_op CurrentOp) Run(stdout, _ io.Writer) error {
 		return err
 	}
 	kc := new(kubeconfig.Kubeconfig).WithLoader(kubeconfig.DefaultLoader)
-	kc.Close()
+	defer kc.Close()
 	if err := kc.Parse(); err != nil {
 		return fmt.Errorf("kubeconfig error: %w", err)
 	}
